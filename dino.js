@@ -29,7 +29,7 @@ export function updateDino(delta, speedScale) {
 function handleRun(delta, speedScale) {
     if (isJumping) {
         dinoElem.src = `imgs/dino-stationary.png`;
-        return;    
+        return;
     }
 
     if (currentFrameTime >= FRAME_TIME) {
@@ -42,10 +42,10 @@ function handleRun(delta, speedScale) {
 
 function handleJump(delta) {
     if (!isJumping) return;
-    
+
     incrementCustomProperty(dinoElem, "--bottom", yVelocity * delta);
 
-    if (getCustomProperty(dinoFrame, "--bottom") <= 0) {
+    if (getCustomProperty(dinoElem, "--bottom") <= 0) {
         setCustomProperty(dinoElem, "--bottom", 0);
         isJumping = false;
     }
